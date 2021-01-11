@@ -67,29 +67,13 @@ img_url
 # ### Mars Facts
 df = pd.read_html('http://space-facts.com/mars/')[0]
 
-df.head()
 
 df.columns=['Description', 'Mars']
 df.set_index('Description', inplace=True)
-df
 
 
 df.to_html()
 
-
-# ### Mars Weather
-
-# Visit the weather website
-url = 'https://mars.nasa.gov/insight/weather/'
-browser.visit(url)
-
-# Parse the data
-html = browser.html
-weather_soup = soup(html, 'html.parser')
-
-# Scrape the Daily Weather Report table
-weather_table = weather_soup.find('table', class_='mb_table')
-print(weather_table.prettify())
 
 # # D1: Scrape High-Resolution Mars’ Hemisphere Images and Titles
 
